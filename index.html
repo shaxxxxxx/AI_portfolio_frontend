@@ -1,0 +1,2528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sharanya Portfolio</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Clash+Display:wght@600;700&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Sora", sans-serif;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2 {
+            font-family: "Clash Display", sans-serif;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        
+        /* NAVBAR */
+        .nav-top {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+            border-radius: 40px;
+            z-index: 100;
+        }
+
+        .nav-top .logo {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .nav-top .logo span {
+            opacity: 0.6;
+            font-size: 13px;
+            margin-left: 5px;
+        }
+
+        .nav-bottom {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 12px 30px;
+            border-radius: 40px;
+            z-index: 100;
+        }
+
+        .nav-bottom a {
+            text-decoration: none;
+            color: white;
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+
+        .nav-bottom a:hover {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        /* HERO */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+            padding-bottom: 40px;
+position:relative;
+overflow:hidden;
+background:#000;
+}
+   
+.hero-content{
+position:relative;
+z-index:2;
+}
+.aurora-bg{
+
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+z-index:0;
+
+filter: blur(120px);
+opacity:0.6;
+
+}
+
+        .hero h1 {
+            font-size: 90px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #ffffff;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            max-width: 600px;
+            opacity: 0.8;
+            font-size: 18px;
+        }
+
+        .ai-glass-container {
+            margin-top: 40px;
+            width: 640px;
+            padding: 30px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6),
+                0 0 60px rgba(120, 180, 255, 0.2);
+            animation: floatContainer 6s ease-in-out infinite;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        @keyframes floatContainer {
+            0% {
+                transform: translateY(0px) rotateX(0deg);
+            }
+
+            50% {
+                transform: translateY(-12px) rotateX(2deg);
+            }
+
+            100% {
+                transform: translateY(0px) rotateX(0deg);
+            }
+        }
+
+        .ai-glass-container::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            border-radius: 30px;
+            background: linear-gradient(120deg,
+                    transparent,
+                    rgba(120, 180, 255, 0.4),
+                    transparent);
+            opacity: 0.3;
+            filter: blur(15px);
+            z-index: -1;
+        }
+
+        .ai-text {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 16px;
+        }
+
+        .ai-input {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 40px;
+            padding: 10px;
+            gap: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .ai-input input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            padding: 12px;
+            color: white;
+            font-size: 14px;
+        }
+
+        .icon-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .icon-btn svg {
+            width: 18px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .icon-btn:hover {
+            transform: scale(1.12);
+            box-shadow: 0 0 20px rgba(120, 180, 255, 0.5);
+        }
+
+        .voice-wave {
+            position: absolute;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px solid rgba(120, 180, 255, 0.6);
+            opacity: 0;
+        }
+
+        .mic-btn.active .voice-wave {
+            animation: voiceWave 1.6s infinite;
+            opacity: 1;
+        }
+
+        @keyframes voiceWave {
+            0% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: scale(1.8);
+                opacity: 0;
+            }
+        }
+
+        /* MOVING TAG STRIP */
+
+        .tag-marquee {
+            width: 100%;
+            overflow: hidden;
+            margin-top: 60px;
+
+            mask-image: linear-gradient(to right,
+                    transparent,
+                    rgb(255, 255, 255) 8%,
+                    rgba(255, 255, 255, 0.461) 92%,
+                    transparent);
+            padding-bottom: 50px;
+        }
+
+        .tag-track {
+            display: flex;
+            gap: 20px;
+            width: max-content;
+
+            animation: marqueeScroll 30s linear infinite;
+        }
+
+        /* tag style */
+
+        .marquee-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(8px);
+            font-size: 14px;
+            white-space: nowrap;
+            color: rgba(255, 255, 255, 0.604);
+        }
+
+        /* infinite scroll */
+
+        @keyframes marqueeScroll {
+
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+
+        }
+
+        /* ANIMATION */
+
+        @keyframes marqueeScroll {
+
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+
+        }
+
+        .tag-marquee {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .tag-track {
+            display: flex;
+            gap: 18px;
+            width: max-content;
+        }
+
+        /* LEFT MOVING */
+
+        .track-left {
+            animation: scrollLeft 40s linear infinite;
+        }
+
+        /* RIGHT MOVING */
+
+        .track-right {
+            animation: scrollRight 40s linear infinite;
+        }
+
+        /* TAG STYLE */
+
+        .marquee-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 10px 18px;
+
+            border-radius: 30px;
+
+            background: rgba(255, 255, 255, 0.05);
+
+            border: 1px solid rgba(255, 255, 255, 0.18);
+
+            backdrop-filter: blur(8px);
+
+            font-size: 14px;
+
+            white-space: nowrap;
+        }
+
+        /* animations */
+
+        @keyframes scrollLeft {
+
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+
+        }
+
+        @keyframes scrollRight {
+
+            from {
+                transform: translateX(-50%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+
+        }
+
+        /* ABOUT SECTION - FRAMER STYLE */
+
+        .about {
+            min-height: 100vh;
+
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+
+            gap: 90px;
+
+            padding: 140px 10%;
+            align-items: center;
+        }
+
+        /* LEFT CONTENT */
+
+        .about-content h2 {
+            font-size: 70px;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            opacity: .85;
+            max-width: 560px;
+            color: rgba(255, 255, 255, 0.508);
+        }
+
+        /* divider line */
+
+        .about-divider {
+            width: 100%;
+            max-width: 560px;
+            height: 1px;
+
+            margin: 35px 0;
+
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.35),
+                    transparent);
+        }
+
+        /* SERVICE TAGS */
+
+        .about-services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 560px;
+        }
+
+        .service-tag {
+            padding: 9px 18px;
+
+            border-radius: 20px;
+
+            font-size: 14px;
+
+            background: rgba(255, 255, 255, 0.04);
+
+            border: 1px solid rgba(255, 255, 255, 0);
+
+            backdrop-filter: blur(8px);
+
+            color: #ffffff85;
+
+            letter-spacing: .3px;
+        }
+
+        /* RIGHT IMAGE */
+
+        .about-image {
+            width: 100%;
+            height: 520px;
+
+            border-radius: 26px;
+
+            overflow: hidden;
+
+            border: 1px solid rgba(255, 255, 255, 0.15);
+
+            box-shadow: 0 30px 90px rgba(0, 0, 0, .9);
+
+            transition: transform .6s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* PROJECTS BENTO GRID */
+        .projects {
+            padding: 140px 10%;
+            max-width: 1400px;
+            margin: auto;
+        }
+        .project-card {
+            background: #1e1e1e;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.35s;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+width:100%;
+height:100%;
+
+        }
+        .project-card::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(to top, rgba(0,0,0,.3), transparent);
+}
+        .project-card.wide {
+            grid-column: span 2;
+        }
+
+        .project-card.tall {
+            grid-row: span 2;
+        }
+
+        .tilt {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: transform 0.25s ease;
+        }
+
+        .project-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .stack,
+        .description,
+        .github-btn {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: 0.35s;
+        }
+
+        .project-card:hover .stack,
+        .project-card:hover .description,
+        .project-card:hover .github-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .github-btn{
+position:absolute;
+top:18px;
+right:18px;
+z-index:5;
+width:42px;
+height:42px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+color:white;
+font-size:18px;
+transition:all .3s ease;
+cursor:pointer;
+}
+
+.github-btn:hover{
+transform:scale(1.15);
+background:white;
+color:black;
+box-shadow:0 0 20px rgba(255,255,255,0.4);
+}
+
+.project-image{
+pointer-events:none;
+}
+
+        .project-card:hover .github-btn {
+            opacity: 3;
+            transform: translateY(0);
+        }
+
+        .project-card:hover {
+            box-shadow: 0 40px 120px rgba(214, 205, 205, 0.9);
+        }
+
+
+        /* SOLUTIONS */
+        .solutions {
+            padding: 120px 10%;
+        }
+
+        .solution-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 120px;
+        }
+
+        .reverse {
+            direction: rtl;
+        }
+
+        .reverse .solution-text {
+            direction: ltr;
+        }
+
+        .solution-image img {
+            width: 100%;
+            border-radius: 20px;
+            filter: grayscale(100%);
+            transition: 0.6s;
+        }
+
+        .solution-row:hover img {
+            filter: grayscale(0);
+        }
+
+        .solution-text h3 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .solution-text p {
+            font-size: 16px;
+            line-height: 1.7;
+            opacity: 0.8;
+        }
+
+
+        /* SERVICES */
+
+        .services-section {
+            padding: 120px 8%;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+
+        /* badge */
+
+        .services-badge {
+            display: inline-block;
+            padding: 6px 14px;
+
+            border-radius: 20px;
+
+            background: rgba(255, 255, 255, 0.05);
+
+            border: 1px solid rgba(255, 255, 255, 0.15);
+
+            font-size: 12px;
+
+            margin-bottom: 18px;
+        }
+
+        .services-desc+.services-desc {
+            margin-top: 6px;
+            line-height: 1.7;
+        }
+
+        /* title */
+
+        .services-title {
+            font-size: 52px;
+            line-height: 1.1;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        /* description */
+
+        .services-desc {
+            color: #a5a5a5;
+
+            margin-bottom: 12px;
+            max-width: 480px;
+            line-height: 1.7
+        }
+
+        /* buttons */
+
+        .services-buttons {
+            display: flex;
+            gap: 16px;
+            margin-top: 28px;
+        }
+
+        .btn-primary {
+            padding: 12px 26px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.508);
+        }
+
+        .btn-secondary {
+            padding: 12px 26px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.508);
+
+        }
+
+        /* image */
+
+        .services-image img {
+            width: 100%;
+
+            border-radius: 28px;
+        }
+
+        /* grid */
+
+        .services-grid {
+
+            margin-top: 80px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 30px;
+        }
+
+        /* cards */
+
+        .service-card {
+
+            display: flex;
+            gap: 18px;
+
+            padding: 28px;
+
+            border-radius: 20px;
+
+            background: rgba(255, 255, 255, 0.02);
+
+            /* remove normal border */
+            border: none;
+
+            /* metallic gradient border */
+            position: relative;
+        }
+
+        /* metallic border effect */
+
+        .service-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            border-radius: 40px;
+
+            padding: 1px;
+
+            background: linear-gradient(120deg,
+                    rgba(255, 255, 255, 0.2),
+                    rgba(255, 255, 255, 0.05),
+                    rgba(255, 255, 255, 0));
+
+            -webkit-mask:
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0); 
+
+            -webkit-mask-composite: xor;
+
+            mask-composite: exclude;
+        }
+
+        .service-card:hover::before {
+
+            background: linear-gradient(120deg,
+                    rgba(0, 0, 0, 0.8),
+                    rgba(255, 255, 255, 0.1),
+                    rgba(255, 255, 255, 0.8));
+
+            transition: .3s;
+        }
+
+        .service-card h4 {
+
+            font-size: 18px;
+
+            margin-bottom: 10px;
+
+            padding-bottom: 10px;
+
+            /* divider line */
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .service-card i {
+
+            font-size: 22px;
+
+            margin-top: 4px;
+
+            opacity: .8;
+        }
+
+        .service-card h4 {
+
+            margin-bottom: 8px;
+
+            font-size: 18px;
+        }
+
+        .service-card p {
+
+            color: #9b9b9b;
+
+            font-size: 14px;
+        }
+
+        /* CONTACT */
+        .contact {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .contact h1 {
+            font-size: 50px;
+            margin-bottom: 40px;
+        }
+
+        .icons {
+            display: flex;
+            gap: 35px;
+            margin-bottom: 30px;
+        }
+
+        .icons i {
+            font-size: 28px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .icons i:hover {
+            transform: scale(1.5);
+        }
+
+        /* PREMIUM BOOK A CALL BUTTON */
+
+        .premium-call-btn {
+            position: relative;
+            padding: 16px 42px;
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+
+            cursor: pointer;
+            overflow: hidden;
+
+            transition: all .35s ease;
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, .5),
+                inset 0 0 10px rgba(255, 255, 255, .08);
+        }
+
+
+        /* metallic shine sweep */
+
+        .premium-call-btn::before {
+            content: "";
+            position: absolute;
+
+            top: 0;
+            left: -100%;
+            width: 60%;
+            height: 100%;
+
+            background: linear-gradient(120deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.8),
+                    transparent);
+
+            transform: skewX(-25deg);
+            transition: all .8s ease;
+        }
+
+
+        /* neon border glow */
+
+        .premium-call-btn::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 40px;
+
+            box-shadow:
+                0 0 0 rgba(255, 255, 255, 0);
+
+            transition: .35s;
+        }
+
+
+        /* hover effects */
+
+        .premium-call-btn:hover {
+
+            transform: translateY(-4px) scale(1.03);
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, .7),
+                0 0 25px rgba(255, 255, 255, .25);
+
+            border-color: white;
+        }
+
+        .premium-call-btn:hover::before {
+            left: 140%;
+        }
+
+        .premium-call-btn:hover::after {
+            box-shadow:
+                0 0 18px rgba(255, 255, 255, .6),
+                0 0 40px rgba(255, 255, 255, .2);
+        }
+
+
+        /* click effect */
+
+        .premium-call-btn:active {
+            transform: translateY(1px) scale(.98);
+        }
+
+        .section-title,
+        .about-text h2,
+        .why-me h3,
+        .contact h1 {
+            text-align: center;
+        }
+
+        .bento-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-auto-rows:280px;
+gap:20px;
+grid-auto-flow:dense;
+}
+
+.project-card.wide{
+grid-column:span 2;
+}
+
+.project-card.tall{
+grid-row:span 2;
+}
+
+        .section-title,
+        .about-text h2,
+        .why-me h3,
+        .contact h1 {
+            text-align: center;
+            font-size: 80px;
+            /* increased from default */
+        }
+
+        .section-title,
+        .about-text h2,
+        .why-me h3,
+        .contact h1 {
+            text-align: center;
+            font-size: 50px;
+            /* increased from default */
+            margin-bottom: 45px;
+        }
+
+        /* SOLUTIONS IMAGE SIZE REDUCED */
+        .solution-image img {
+            width: 90%;
+            max-width: 500px;
+            /* cap the width */
+            border-radius: 20px;
+            filter: grayscale(100%);
+            transition: .6s;
+        }
+
+        /* SOLUTIONS TEXT SMALLER CONTENT */
+        .solution-text p {
+            font-size: 15px;
+            /* slightly smaller */
+            line-height: 1.6;
+            opacity: 0.85;
+        }
+
+        .contact h1 {
+            font-size: 100px;
+        }
+
+        /* AVAILABLE FOR WORK BADGE */
+
+        .availability-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            letter-spacing: .5px;
+            margin-bottom: 25px;
+
+            background: linear-gradient(90deg, #d9d9d9, #9a9a9a, #000);
+            color: #fff;
+
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* AVAILABLE FOR WORK BADGE */
+
+        .availability-badge {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 8px 20px;
+            border-radius: 30px;
+
+            font-size: 14px;
+            letter-spacing: .4px;
+            color: #fff;
+
+            background: #000;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+
+        /* metallic shine animation */
+
+        .availability-badge::before {
+            content: "";
+            position: absolute;
+
+            top: 0;
+            left: -60%;
+
+            width: 60%;
+            height: 2px;
+
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.9),
+                    rgba(255, 255, 255, 0.4),
+                    transparent);
+
+            animation: metalShine 5s linear infinite;
+        }
+
+        @keyframes metalShine {
+            0% {
+                left: -60%;
+            }
+
+            100% {
+                left: 110%;
+            }
+        }
+
+        /* blinking status dot */
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+
+            background: #ffffff;
+            box-shadow: 0 0 6px #ffffff;
+
+            animation: statusBlink 2.5s infinite;
+        }
+
+        @keyframes statusBlink {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: .3;
+                transform: scale(.8);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .ai-badge {
+
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 8px 16px;
+
+            font-size: 13px;
+
+            color: #eaeaea80;
+
+            border-radius: 40px;
+
+            background: rgba(255, 255, 255, 0.03);
+
+            backdrop-filter: blur(10px);
+
+            position: relative;
+
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        /* metallic animated border */
+
+        .ai-badge::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            padding: 1px;
+
+            border-radius: 40px;
+
+            background: linear-gradient(120deg,
+                    rgba(255, 255, 255, 0.7),
+                    rgba(255, 255, 255, 0.05),
+                    rgba(255, 255, 255, 0.7));
+
+            background-size: 200% 200%;
+
+            animation: borderMove 6s linear infinite;
+
+            -webkit-mask:
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+
+            -webkit-mask-composite: xor;
+
+            mask-composite: exclude;
+        }
+
+        /* border animation */
+
+        @keyframes borderMove {
+
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 200% 50%;
+            }
+
+        }
+
+
+        .badge-dot {
+
+            width: 7px;
+            height: 7px;
+
+            background: #d4d4d4;
+
+            border-radius: 50%;
+
+            box-shadow: 0 0 8px rgb(13, 226, 73);
+
+            animation: blinkDot 2s infinite;
+        }
+
+        /* ease in glow then sudden fade */
+
+        @keyframes blinkDot {
+
+            0% {
+                opacity: 0;
+                transform: scale(0.6);
+            }
+
+            40% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+
+            55% {
+                opacity: 1;
+            }
+
+            56% {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+
+            100% {
+                opacity: 0;
+            }
+
+        }
+
+        /* reveal animation base */
+
+        .reveal-item{
+opacity:0;
+transform:translateY(30px);
+
+/* stronger blur */
+filter:blur(16px);
+
+transition:
+opacity 0.9s ease,
+transform 0.9s ease,
+filter 0.9s ease;
+}
+
+.reveal-item.visible{
+opacity:1;
+transform:translateY(0);
+filter:blur(0);
+}
+
+/* Services section */
+
+.services-section{
+position:relative;
+z-index:1;
+background:#0b0b0b;
+}
+
+/* Contact section */
+.contact-title{
+
+color:#ffffff;
+
+opacity:1;
+
+filter:none;
+
+text-shadow:0 0 20px rgba(255,255,255,0.15);
+
+}
+
+.contact-section{
+
+position:relative;
+
+margin-top:-120px; /* overlap amount */
+
+padding-top:160px;
+
+background:#0b0b0b;
+
+border-top-left-radius:40px;
+border-top-right-radius:40px;
+
+z-index:2;
+}
+
+.contact-section{
+
+box-shadow:0 -30px 60px rgba(0,0,0,0.6);
+
+}
+
+.hero-video{
+
+position:absolute;
+top:50%;
+left:50%;
+width:100vh;
+height:100vw;
+object-fit:cover;
+transform:translate(-50%, -50%) rotate(90deg);
+z-index:0;
+opacity: 0.3;
+}
+
+.hero-video{
+pointer-events: none;
+}
+.icons a{
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:28px;
+color:white;
+
+transition:all 0.35s cubic-bezier(.22,.61,.36,1);
+
+}
+
+.icons a:hover{
+
+transform:scale(0.85) translateY(-6px);
+
+filter:brightness(1.3);
+
+}
+
+.about-image{
+    filter:saturate(10%)
+}
+
+.project-image{
+position:absolute;
+inset:0;
+z-index:0;
+filter: saturate(20%);
+}
+
+.project-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+transition:transform .6s ease;
+}
+
+.project-card:hover .project-image img{
+transform:scale(1.08);
+}
+
+/* keep text above image */
+
+.project-card .tilt{
+position:relative;
+z-index:2;
+}
+
+
+/* dark gradient for readability */
+
+.project-card::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(
+to top,
+rgba(0,0,0,.85),
+rgba(0,0,0,.3),
+transparent
+);
+z-index:1;
+}
+
+.project-image img{
+filter: saturate(0.9) contrast(1.05);
+}
+
+.stack{
+    color:tan;
+}
+
+
+.description{
+font-size:14px;
+color:rgba(255, 255, 255, 0.83);
+line-height:1.5;
+margin-top:6px;
+}
+
+.services-image{
+    filter: saturate(5%);
+}
+
+.chat-messages {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.msg {
+    padding: 8px 12px;
+    margin: 5px 0;
+    border-radius: 50px;
+    font-size: 14px;
+    max-width: 80%;
+}
+
+.user {
+    background: rgb(84, 84, 87);
+    color: white;
+    margin-left: auto;
+    border-radius: 50px;
+
+}
+
+.ai {
+    background: #1f2937;
+    color: #e5e7eb;
+}
+
+/* MIC BASE */
+.mic-btn {
+    position: relative;
+    transition: 0.3s ease;
+}
+
+/* WHEN LISTENING */
+.mic-btn.listening {
+    color: #00f0ff;
+}
+
+/* WAVES */
+.mic-btn.listening::before,
+.mic-btn.listening::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 240, 255, 0.5);
+    transform: translate(-50%, -50%);
+    animation: wave 1.5s infinite;
+}
+
+.mic-btn.listening::after {
+    animation-delay: 0.5s;
+}
+
+
+
+/* ANIMATION */
+@keyframes wave {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
+}
+
+
+.typing {
+    display: flex;
+    gap: 5px;
+    padding: 10px 12px;
+    background: #1f2937;
+    border-radius: 20px;
+    width: fit-content;
+}
+
+.typing span {
+    width: 6px;
+    height: 6px;
+    background: #ccc;
+    border-radius: 50%;
+    animation: blink 1.4s infinite;
+}
+
+.typing span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes blink {
+    0%, 80%, 100% {
+        opacity: 0.2;
+    }
+    40% {
+        opacity: 1;
+    }
+}
+.premium-call-btn{
+    text-decoration: none;
+}
+
+/* ================= FOOTER ================= */
+.simple-footer {
+    text-align: center;
+    padding: 25px 10px;
+    font-size: 13px;
+    color: #888;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    background: #0b0b0b;
+    position: relative;
+}
+
+.simple-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 25%;
+    width: 50%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, white, transparent);
+    opacity: 0.2;
+}
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .footer-left p {
+        max-width: 100%;
+    }
+
+    .footer-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+}
+/* ================= MOBILE NAV ================= */
+
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 200;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 50%;
+    height: 100vh;
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    padding: 60px 30px;
+    gap: 25px;
+    transition: 0.4s ease;
+    z-index: 150;
+}
+
+.mobile-nav.active {
+    right: 0;
+}
+
+.mobile-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* ================= GLOBAL RESPONSIVE ================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+
+    /* NAV */
+    .nav-bottom {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    /* HERO */
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .ai-glass-container {
+    width: 100%;
+    height: 145px;
+    padding: 12px;
+    padding-bottom: 22px;
+    border-radius: 18px;
+}
+
+.chat-messages {
+    max-height: 80px;
+    overflow-y: auto;
+}
+
+
+.ai-input {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px;
+    border-radius: 30px;
+    width: 100%;
+}
+
+.ai-input input {
+    flex: 1;
+    font-size: 13px;
+    padding: 8px;
+}
+
+.icon-btn {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+}
+
+    .chat-messages {
+    max-height: 90px;
+}
+
+    /* ABOUT */
+    .about {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .about-content h2 {
+        font-size: 36px;
+    }
+
+    .about-image {
+        height: 300px;
+    }
+
+    .about-services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    max-width: 320px;
+    margin: auto;
+}
+
+    /* BENTO GRID */
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 220px;
+    }
+
+    .project-card.wide,
+    .project-card.tall {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    /* SOLUTIONS (CARD STYLE) */
+    .solutions{
+        padding-top:30px;
+    }
+    .solution-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+        background: rgba(255,255,255,0.03);
+        border-radius: 20px;
+    }
+
+    .solution-image img {
+        width: 100%;
+    }
+
+    /* SERVICES */
+    .services-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .service-tag {
+    text-align: center;
+    padding: 8px 10px;
+    font-size: 12px;
+}
+    .services-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-image {
+        margin-top: 20px;
+    }
+
+    /* CONTACT */
+    .contact h1 {
+        font-size: 40px;
+    }
+
+    .premium-call-btn {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+
+}
+
+.projects {
+    padding: 140px 10%;
+}
+
+.corner-copy {
+    margin-top: 40px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.602);
+    text-align: left;
+}
+
+/* 📱 MOBILE → center it */
+@media (max-width: 768px) {
+    .corner-copy {
+        text-align: center;
+        font-size: 11px;
+    }
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    <!-- MOBILE MENU BUTTON -->
+<div class="menu-toggle" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+
+    <a href="#home" onclick="toggleMenu()">Home</a>
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#projects" onclick="toggleMenu()">Projects</a>
+    <a href="#solutions" onclick="toggleMenu()">Solutions</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+    <!-- NAV -->
+    <div class="nav-top">
+        <div class="logo">SHARANYA's</s> <span>portfolio</span></div>
+    </div>
+    <div class="nav-bottom">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!-- HERO -->
+
+    <section class="hero reveal-item" id="home">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="bgvideo.mp4" type="video/mp4">
+        </video>
+        <div class="ai-badge">
+            <span class="badge-dot"></span>
+            AI Assisted Portfolio
+        </div>
+        <h1>Welcome to my portfolio</h1>
+        <p>
+            I build AI-powered web applications that turn complex data into actionable insights for businesses and individuals.
+        </p>
+        <div class="ai-glass-container">
+            <div class="ai-text">
+                Chat or interact with my AI & voice assistant about my portfolio
+            </div>
+            <div class="chat-messages"></div>
+            <div class="ai-input">
+                <input type="text" placeholder="Ask about my projects, skills, experience..." />
+                <button class="icon-btn mic-btn" onclick="toggleVoice()">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 15a3 3 0 003-3V6a3 3 0 10-6 0v6a3 3 0 003 3z" />
+                        <path d="M19 11a7 7 0 01-14 0" />
+                        <line x1="12" y1="19" x2="12" y2="23" />
+                        <line x1="8" y1="23" x2="16" y2="23" />
+                    </svg>
+                    <span class="voice-wave"></span>
+                </button>
+                <button  type="button" class="icon-btn send-btn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M22 2L11 13" />
+                        <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    </div>
+
+    <!-- about section  -->
+
+    <section class="about reveal-item" id="about">
+
+        <div class="about-content">
+
+            <h2>Meet Sharanya</h2>
+
+            <p>
+                I am an AI Engineering student focused on building intelligent web
+                applications combining AI and modern web technologies.
+            </p>
+
+
+            <div class="about-divider"></div>
+
+            <div class="about-services">
+
+                <div class="service-tag">Web Development</div>
+                <div class="service-tag">AI Websites</div>
+                <div class="service-tag">Chatbots</div>
+                <div class="service-tag">Voicebots</div>
+                <div class="service-tag">Lead Generation</div>
+                <div class="service-tag">Modern UI</div>
+
+            </div>
+
+        </div>
+
+
+        <div class="about-image">
+            <img src="pandu.jpg">
+        </div>
+
+    </section>
+
+        <div class="tag-marquee">
+
+        <!-- Row 1 -->
+        <div class="tag-track track-left">
+
+            <div class="marquee-tag"><i class="fas fa-code"></i> Web Development</div>
+            <div class="marquee-tag"><i class="fas fa-brain"></i> AI Websites</div>
+            <div class="marquee-tag"><i class="fas fa-robot"></i> Chatbots</div>
+            <div class="marquee-tag"><i class="fas fa-microchip"></i> Artificial Intelligence</div>
+            <div class="marquee-tag"><i class="fas fa-diagram-project"></i> Projects</div>
+
+            <!-- duplicate -->
+            <div class="marquee-tag"><i class="fas fa-code"></i> Web Development</div>
+            <div class="marquee-tag"><i class="fas fa-brain"></i> AI Websites</div>
+            <div class="marquee-tag"><i class="fas fa-robot"></i> Chatbots</div>
+            <div class="marquee-tag"><i class="fas fa-microchip"></i> Artificial Intelligence</div>
+            <div class="marquee-tag"><i class="fas fa-diagram-project"></i> Projects</div>
+
+        </div>
+
+        <!-- Row 2 -->
+        <div class="tag-track track-right">
+
+            <div class="marquee-tag"><i class="fas fa-microphone"></i> Voicebots</div>
+            <div class="marquee-tag"><i class="fas fa-layer-group"></i> Modern UI</div>
+            <div class="marquee-tag"><i class="fas fa-bullseye"></i> Lead Generation</div>
+            <div class="marquee-tag"><i class="fas fa-database"></i> Data Analysis</div>
+            <div class="marquee-tag"><i class="fas fa-cloud"></i> AI Automation</div>
+
+            <!-- duplicate -->
+            <div class="marquee-tag"><i class="fas fa-microphone"></i> Voicebots</div>
+            <div class="marquee-tag"><i class="fas fa-layer-group"></i> Modern UI</div>
+            <div class="marquee-tag"><i class="fas fa-bullseye"></i> Lead Generation</div>
+            <div class="marquee-tag"><i class="fas fa-database"></i> Data Analysis</div>
+            <div class="marquee-tag"><i class="fas fa-cloud"></i> AI Automation</div>
+
+        </div>
+
+    <!-- PROJECTS (BENTO GRID) -->
+    <section class="projects" id="projects">
+        <h2 class="section-title reveal-item">Projects</h2>
+        <div class="bento-grid">
+            <div class="project-card wide">
+
+                <div class="project-image">
+                  <img src="AI portfolio img.png" alt="AI Portfolio">
+                </div>
+              
+                <div class="tilt">
+                    <h3>AI Portfolio</h3>
+                    <p class="stack">HTML • CSS • Langchain • RAG system
+                    </p>
+                    <p class="description">
+                        Interactive AI powered portfolio with chatbot and voice assistant.
+                    </p>
+                    <a href="" class="github-btn"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="project-card tall">
+
+                <div class="project-image">
+                  <img src="coding window.png" alt="AI Portfolio">
+                </div>
+              
+                <div class="tilt">
+                    <h3>Terminal Based Voice bot</h3>
+                    
+
+                    <p class="stack">Python • STT • speech recognition</p>
+                    <p class="description">
+                        A command based voice bot, which also performs tasks like opening youtube,gmail.
+                    </p>
+                    <a href="https://github.com/shaxxxxxx/Python-voice-bot" class="github-btn"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="project-card wide">
+
+                <div class="project-image">
+                  <img src="the eda tool.png" alt="AI Portfolio">
+                </div>
+              
+                <div class="tilt">
+                    <h3>The EDA tool</h3>
+                    <p class="stack">EDA • Data Analysis • python • matplotlib</p>
+                    <p class="description">
+                       Data Analysis tool that performs automated exploratory data analysis and
+                        generates visual insights.                    </p>
+                    <a href="https://github.com/shaxxxxxx/eda-tool" class="github-btn"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="project-card tall">
+
+                <div class="project-image">
+                  <img src="AI twin.jpg" alt="AI Portfolio">
+                </div>
+              
+                <div class="tilt">
+                    <h3>Sharanya's AI Digital twin</h3>
+                
+
+                    <p class="stack">Python • LLM Fine-Tuning • Vector DB • RAG</p>
+                    <p class="description">
+                        Building a digital twin that can replicate my thinking style,and act as an AI version of me.(coming soon)                   </p>
+                    <a href="#" class="github-btn"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTIONS -->
+    <section class="solutions" id="solutions">
+        <h2 class="section-title reveal-item">AI Solutions for Businesses</h2>
+        <div class="solution-row">
+            <div class="solution-text reveal-item">
+                <h3>AI Chatbots</h3>
+                <p>
+                    Businesses lose customers when support responses are slow. AI
+                    chatbots automate conversations and provide instant assistance to
+                    improve customer satisfaction.
+                </p>
+            </div>
+            <div class="solution-image">
+                <img src="aichatbot.jpg" />
+            </div>
+        </div>
+        <div class="solution-row reverse">
+            <div class="solution-text reveal-item">
+                <h3>Voice Assistants</h3>
+                <p>
+                    Teams waste time on repetitive manual tasks. Voice assistants
+                    automate workflows and enable hands-free interaction with systems.
+                </p>
+            </div>
+            <div class="solution-image">
+                <img src="voicebot.png" />
+            </div>
+        </div>
+        <div class="solution-row">
+            <div class="solution-text reveal-item">
+                <h3>AI Data Insights</h3>
+                <p>
+                    Companies collect massive amounts of data but struggle to extract
+                    insights. AI systems analyze patterns and generate business
+                    intelligence automatically.
+                </p>
+            </div>
+            <div class="solution-image">
+                <img src="aiinisghts.png" />
+            </div>
+        </div>
+    </section>
+
+    <div class="tag-marquee">
+
+        <!-- Row 1 -->
+        <div class="tag-track track-left">
+
+            <div class="marquee-tag"><i class="fas fa-code"></i> Web Development</div>
+            <div class="marquee-tag"><i class="fas fa-brain"></i> AI Websites</div>
+            <div class="marquee-tag"><i class="fas fa-robot"></i> Chatbots</div>
+            <div class="marquee-tag"><i class="fas fa-microchip"></i> Artificial Intelligence</div>
+            <div class="marquee-tag"><i class="fas fa-diagram-project"></i> Projects</div>
+
+            <!-- duplicate -->
+            <div class="marquee-tag"><i class="fas fa-code"></i> Web Development</div>
+            <div class="marquee-tag"><i class="fas fa-brain"></i> AI Websites</div>
+            <div class="marquee-tag"><i class="fas fa-robot"></i> Chatbots</div>
+            <div class="marquee-tag"><i class="fas fa-microchip"></i> Artificial Intelligence</div>
+            <div class="marquee-tag"><i class="fas fa-diagram-project"></i> Projects</div>
+
+        </div>
+    </div>
+
+    <section class="services-section reveal-item">
+
+        <div class="services-container">
+
+            <!-- LEFT CONTENT -->
+
+            <div class="services-left">
+
+                <div class="services-badge">
+                    Services
+                </div>
+
+                <h2 class="services-title">
+                    What can I build for you?
+                </h2>
+
+                <p class="services-desc">
+                    I design and build intelligent digital products that help businesses automate workflows, capture
+                    leads, and deliver smarter user experiences.
+                </p>
+
+                <p class="services-desc">
+                    Perfect for startups, founders, agencies, and businesses looking to integrate AI into modern web
+                    platforms.
+                </p>
+
+                <div class="services-buttons">
+
+                    <a href="https://calendly.com/sharanyasukruthaa/30min" class="btn-primary">
+                        Book a Free Meet
+                    </a>
+
+                    <a href="#projects" class="btn-secondary">
+                        See Projects
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT IMAGE -->
+
+            <div class="services-image">
+
+                <img src="womancoding.png" alt="services image">
+
+            </div>
+
+        </div>
+
+
+        <!-- SERVICE LIST -->
+
+        <div class="services-grid ">
+
+            <div class="service-card reveal-item">
+                <i class="fas fa-robot"></i>
+                <div>
+                    <h4>AI Chatbot Development</h4>
+                    <p>Custom conversational AI systems that engage visitors, automate support, and capture business
+                        leads.</p>
+                </div>
+            </div>
+
+            <div class="service-card reveal-item">
+                <i class="fas fa-microphone"></i>
+                <div>
+                    <h4>Voice AI Interfaces</h4>
+                    <p>Voice-enabled assistants that allow users to interact with platforms using natural speech.</p>
+                </div>
+            </div>
+
+            <div class="service-card reveal-item">
+                <i class="fas fa-brain"></i>
+                <div>
+                    <h4>AI Web Applications</h4>
+                    <p>Full-stack intelligent web apps powered by modern frameworks and advanced AI capabilities.</p>
+                </div>
+            </div>
+
+            <div class="service-card reveal-item">
+                <i class="fas fa-gears"></i>
+                <div>
+                    <h4>UI/UX Design</h4>
+                    <p>Crafting modern, user-centric designs that are both visually stunning and highly functional.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <video autoplay muted loop playsinline class="hero-video"> 
+            <source src="bgvideo.mp4" type="video/mp4">
+          </video>
+        <div class="availability-badge">
+            <span class="status-dot"></span>
+            available for work
+        </div>
+        <h1 class="contact-title reveal-item">Sharanya Domalapally</h1>
+        <div class="icons">
+
+            <a href="https://github.com/shaxxxxxx"><i class="fab fa-github"></i></a>
+            <a href="www.linkedin.com/in/sharanya2005"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/@sharayasukruthaa"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/sharanya_sukrutha/?hl=en"><i class="fab fa-instagram"></i></a>
+            <a href="https://forms.gle/UyhrRtv4jRuFjyD76"><i class="fas fa-file"></i></a>
+            
+            </div>
+       <a  href="https://calendly.com/sharanyasukruthaa/30min" class="premium-call-btn">
+            Book a Free Meet
+       </a>
+       <div class="corner-copy">
+        <span > © 2026</span> Sharanya Domalapally
+    </div>
+    </section>
+
+
+
+
+
+
+
+    <script>
+        const API_URL = "https://domalapallysharanya-ai-portfolio-backend.hf.space";
+        console.log("JS LOADED ✅");
+        let isVoiceMode = false;
+        
+        /* =========================
+           SAFE GSAP CHECK
+        ========================= */
+        if (typeof gsap !== "undefined") {
+        
+            gsap.registerPlugin(ScrollTrigger);
+        
+            /* PARALLAX SECTIONS */
+            document.querySelectorAll(".projects, .solutions, .why-me, .contact").forEach((section) => {
+                if (section) {
+                    gsap.from(section, {
+                        y: 50,
+                        opacity: 0,
+                        duration: 1,
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top 80%",
+                            end: "bottom 60%",
+                            toggleActions: "play none none reverse",
+                        },
+                    });
+                }
+            });
+        
+            /* STAGGER ELEMENTS */
+            document.querySelectorAll(".project-card, .solution-row, .trapezium-why, .about-text, .contact").forEach((el) => {
+                if (el) {
+                    gsap.from(el, {
+                        opacity: 0,
+                        y: 40,
+                        duration: 0.5,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 85%",
+                            toggleActions: "play none none reverse"
+                        }
+                    });
+                }
+            });
+        
+        } else {
+            console.warn("GSAP not loaded ⚠️");
+        }
+        
+        /* =========================
+           TILT EFFECT
+        ========================= */
+        document.querySelectorAll(".project-card").forEach((card) => {
+            card.addEventListener("mousemove", (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const rotateX = (y - rect.height / 2) / 30;
+                const rotateY = (rect.width / 2 - x) / 30;
+                card.style.transform = `perspective(900px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.06)`;
+            });
+        
+            card.addEventListener("mouseleave", () => {
+                card.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)";
+            });
+        });
+        
+        /* =========================
+           INTERSECTION OBSERVER
+        ========================= */
+        const revealItems = document.querySelectorAll(".reveal-item");
+        
+        if (revealItems.length > 0) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, { threshold: 0.15 });
+        
+            revealItems.forEach(item => observer.observe(item));
+        }
+        
+        /* =========================
+           VIDEO SAFE
+        ========================= */
+        const video = document.querySelector("video");
+        if (video) {
+            video.playbackRate = 0.5;
+        }
+        
+        /* =========================
+           VOICE BUTTON
+        ========================= */
+        function toggleVoice() {
+            const btn = document.querySelector(".mic-btn");
+            if (btn) btn.classList.toggle("active");
+        }
+        
+        /* =========================
+           CHATBOT (SAFE VERSION)
+        ========================= */
+        document.addEventListener("DOMContentLoaded", () => {
+        
+            const input = document.querySelector(".ai-input input");
+            const sendBtn = document.querySelector(".send-btn");
+        
+            if (!input || !sendBtn) {
+                console.error("Chat elements not found ❌");
+                return;
+            }
+
+            function removeTyping() {
+    const typing = document.getElementById("typing-indicator");
+    if (typing) typing.remove();
+}
+
+
+        
+async function sendMessage() {
+    const message = input.value.trim();
+    if (!message) return;
+
+    input.value = "";
+
+    addMessage(message, "user");
+
+    const casualInputs = ["ok", "okay", "thanks", "thank you", "no", "nope", "cool","done"];
+    if (casualInputs.includes(message.toLowerCase())) {
+        addMessage("👍 Got it! Let me know if you want to explore anything else.", "ai");
+        return;
+    }
+
+    showTyping();
+
+    try {
+        const res = await fetch("https://domalapallysharanya-ai-portfolio-backend.hf.space/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message })
+});
+
+const data = await res.json();
+console.log("Backend response:", data);
+
+removeTyping();
+
+if (data.error) {
+    addMessage("⚠️ " + data.error, "ai");
+} else {
+    let reply = data.response;
+
+    if (!reply || typeof reply !== "string") {
+        reply = "Sorry, I didn't get that.";
+    }
+
+    reply = reply.split('.').slice(0, 2).join('.') + '.';
+
+    addMessage(reply, "ai");
+
+    if (isVoiceMode) {
+        speak(reply);
+        isVoiceMode = false;
+    }
+}
+
+    } catch (err) {
+        console.error("FULL ERROR:", err);
+        removeTyping();
+        addMessage("❌ Backend not connected", "ai");
+    }
+}       
+            sendBtn.addEventListener("click", sendMessage);
+        
+            input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        e.preventDefault(); // 🚨 ADD THIS
+        sendMessage();
+    }
+});
+        
+        });
+
+        function addMessage(text, sender) {
+    const chatBox = document.querySelector(".chat-messages");
+
+    if (!chatBox) return;
+
+    const msg = document.createElement("div");
+    msg.classList.add("msg", sender);
+    msg.innerText = text;
+
+    chatBox.appendChild(msg);
+
+    // auto scroll
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+        
+
+/* =========================
+   VOICE + SPEAK (FINAL FIX)
+========================= */
+
+/* 🔊 SPEAK FUNCTION */
+function speak(text) {
+    if (!text) return;
+
+    window.speechSynthesis.cancel();
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    let voices = window.speechSynthesis.getVoices();
+
+    // ✅ fallback if voices not loaded yet
+    if (!voices || voices.length === 0) {
+        window.speechSynthesis.onvoiceschanged = () => {
+            speak(text); // retry once voices load
+        };
+        return;
+    }
+
+    // ✅ safe selection
+    let selectedVoice =
+    voices.find(v => v.name === "Samantha") ||
+    voices.find(v => v.name === "Google English Female") ||
+    voices.find(v => v.name === "Microsoft Zira") ||
+    voices.find(v => v.name.toLowerCase().includes("female")) ||
+    voices[0];
+
+    // ✅ check before using
+    if (selectedVoice) {
+        speech.voice = selectedVoice;
+        console.log("Using voice:", selectedVoice.name);
+    } else {
+        console.warn("No voice found, using default");
+    }
+
+    speech.rate = text.length > 120 ? 1.05 : 1.0;
+    speech.volume = 1;
+
+    window.speechSynthesis.speak(speech);
+}
+
+/* 🎤 START VOICE */
+function startVoice() {
+    const micBtn = document.querySelector(".mic-btn");
+
+    isVoiceMode = true;
+
+    if (micBtn) micBtn.classList.add("listening");
+
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
+    recognition.lang = "en-US";
+    recognition.start();
+
+    recognition.onresult = function (event) {
+        const transcript = event.results[0][0].transcript;
+
+        document.querySelector(".ai-input input").value = transcript;
+        document.querySelector(".send-btn").click();
+    };
+
+    recognition.onend = function () {
+        if (micBtn) micBtn.classList.remove("listening");
+        // ❌ DO NOT reset isVoiceMode here
+    };
+}
+
+/* 🎤 CONNECT MIC BUTTON */
+document.addEventListener("DOMContentLoaded", () => {
+    const micBtn = document.querySelector(".mic-btn");
+
+    if (micBtn) {
+        micBtn.addEventListener("click", () => {
+            toggleVoice();   // keep your animation
+            startVoice();    // start listening
+        });
+    }
+});
+
+
+        
+function showTyping() {
+    const chatBox = document.querySelector(".chat-messages");
+
+    const typing = document.createElement("div");
+    typing.classList.add("msg", "ai", "typing");
+    typing.id = "typing-indicator";
+
+    typing.innerHTML = `
+        <span></span>
+        <span></span>
+        <span></span>
+    `;
+
+    chatBox.appendChild(typing);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function toggleMenu() {
+    const nav = document.getElementById("mobileNav");
+    nav.classList.toggle("active");
+}
+
+/* CLOSE WHEN CLICKING OUTSIDE */
+document.addEventListener("click", function(e) {
+    const nav = document.getElementById("mobileNav");
+    const toggle = document.querySelector(".menu-toggle");
+
+    if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+        nav.classList.remove("active");
+    }
+});
+
+
+
+        </script>
+
+</footer>
+
+
+</body>
+
+</html>
